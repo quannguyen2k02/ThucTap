@@ -1,0 +1,28 @@
+.m-input{
+    height: 36px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 0 12px;
+    outline: none;
+    width: 175px;
+    position: absolute;
+}
+.m-input:focus{
+    border-color: #019160;
+}
+.m-input:hover{
+	background-color: #e6e6e6;
+  	cursor: pointer;
+}
+.m-input::placeholder{
+    font-size: 11px;
+    color: #bbb;
+}
+.m-input-error{
+    border-color: #ff4747;
+}
+.m-error-info{
+    background-color: #ff4747;
+    padding: 0 16px;
+    border-radius: 4px;
+}

@@ -1,0 +1,40 @@
+table{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+}
+th,td{
+    border: 1px solid #ccc;
+    height: 22px;
+    padding: 10px;
+    text-align: left; /* Căn chỉnh văn bản bên trái */
+}
+th{
+    font-weight: bold;
+}
+.m-table-header-color{
+    background-color: #EEEEEE;
+}
+th:nth-child(1), td:nth-child(1) {
+    width: 10%; /* Cột 1 chiếm 10% chiều rộng */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 10%; /* Cột 2 chiếm 10% chiều rộng */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 15%; /* Cột 3 chiếm 15% chiều rộng */
+}
+th:nth-child(4), td:nth-child(4) {
+    width: 10%; /* Cột 4 chiếm 10% chiều rộng */
+}
+th:nth-child(5), td:nth-child(5) {
+    width: 10%; /* Cột 5 chiếm 10% chiều rộng */
+}
+th:nth-child(6), td:nth-child(6) {
+    width: 20%; /* Cột 6 chiếm 20% chiều rộng */
+}
+th:nth-child(7), td:nth-child(7) {
+    width: 25%; /* Cột 7 chiếm 25% chiều rộng */
+}

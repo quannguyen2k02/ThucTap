@@ -1,0 +1,28 @@
+@import url(./Components/button.css);
+@import url(./Components/input.css);
+@import url(./Components/dialog.css);
+@import url(./Components/popup.css);
+@import url(./Components/table.css);
+
+body{
+    font-family: GoogleSands;
+    font-size: 13px;
+    margin: 0px;
+}
+@font-face{
+    font-family: GoogleSands;
+    src: url("../assets/font/GoogleSans-Regular.otf");
+}
+@font-face{
+    font-family: GoogleSands Italic;
+    src: url("../assets/font/GoogleSans-Italic.otf");
+}
+@font-face{
+    font-family: GoogleSands Bold;
+    src: url("../assets/font/GoogleSans-Bold.otf");
+}
+
+.m-row{
+    margin-top: 4px;
+    width: 100%;
+}
