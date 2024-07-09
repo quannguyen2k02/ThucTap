@@ -1,0 +1,137 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.content{
+    width: 1000px;
+    height: calc(100vh - 64px);
+    background-color: aliceblue;
+    padding: 32px;
+}
+.row{
+    display: flex;
+}
+.m-header-form{
+    padding-bottom: 32px;
+}
+.form-input{
+    height: 32px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 0 12px;
+    outline: none;
+    width: 175px;
+
+}
+.form-input:focus{
+    border-color: #019160;
+}
+.form-input:hover{
+	background-color: #e6e6e6;
+  	cursor: pointer;
+}
+.form-label{
+    font-weight: bold !important;
+    padding-bottom: 8px;
+    
+}
+p{
+    margin: 0 0;
+}
+.form-field-manv{
+    width: 22%;
+}
+.form-input{
+    width: 85%;
+}
+.form-field-hoten{
+    margin: 0 1%;
+    width: 26%;
+}
+.form-field-ngaysinh{
+    width: 22%;
+    margin: 0 1%;
+
+}
+.form-input-gioitinh{
+    width: 19px;
+
+    height: 26px;
+}
+.form-field-gioitinh{
+    width: 28%;
+}
+.align-items-center{
+    align-items: center !important;
+}
+.form-field-vitri{
+    width: 50%;
+    position: relative;
+}
+.form-input-vitri{
+    width: 88%;
+    
+}
+.m-icon-close{
+    position: absolute;
+    top: 53%;
+    height: 20px;
+    right: 58px;
+    opacity: 0.5;
+}
+.m-icon-down{
+    position: absolute;
+    left: 88%;
+    top: 50%;
+    height: 24px;
+}
+.pb-24{
+    margin-bottom: 24px;
+}
+.form-field-cmt{
+    width: 26%;
+}
+.form-field-ngaycap{
+    width: 22%;
+
+}
+.form-input-ngaycap{
+    width: 98%;
+}
+.form-field-phongban{
+    width: 50%;
+    position: relative;
+}
+.form-field-noicap{
+    width: 50%;
+}
+.form-input-noicap{
+    width: 95%;
+}
+.form-field-diachi{
+    width: 100%;
+}
+.form-input-diachi{
+    width: 97.5%;
+}
+.form-field-dtdidong{
+    width: 32%;
+}
+.form-input-dtdidong{
+    width: 92%;
+}
+.mg-2{
+    margin: 0 2%;
+}
+.pb-32{
+    padding-bottom: 32px;
+}
+.footer-content{
+    padding: 32px 0;
+}
+.m-btn-cancel{
+    margin-left: 78%;
+}
+.m-btn-save{
+    margin-left: auto;
+}
