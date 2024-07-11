@@ -1,3 +1,5 @@
+
+
 header{
     width: 100%;
     height: 56px;
@@ -19,11 +21,12 @@ nav{
 
 }
 .main{
-    width: calc(100% - 200px);
-    height: calc(100vh - 56px);
+    width: calc(100% - 230px);
+    height: calc(-86px + 100vh);
     float: left;
     background-color: #EEEEEE;
     position: relative;
+    padding: 15px;
 }
 
 /* Begin Header */
@@ -68,6 +71,7 @@ ul{
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
+    position: relative;
 }
 .m-icon-nav{
     height:25px ;
@@ -82,15 +86,32 @@ ul{
     border-radius: 4px;
     padding-left: 10px;
 }
+.m-bottom-nav{
+    position: absolute;
+    bottom: -427px;
+    width: 170px;
+    border-top: 1px solid #424242;
+    padding: 0 0 !important;
+}
 .m-nav li:hover{
     background-color: #616161;
     cursor: pointer ;
 }
 /* End Nav */
 /*Begin Main */
+.m-table-header-color{
+    border: 1px solid black; /* Viền của container */
+    position: relative;
+    
+}
+th {
+    position: sticky; /* Làm cho dòng tiêu đề cố định */
+    top: 0; /* Vị trí cố định của dòng tiêu đề */
+    background-color: #f2f2f2; /* Màu nền của dòng tiêu đề */
+    z-index: 2; /* Đảm bảo dòng tiêu đề luôn nằm trên các hàng khác */
+}
 .m-top{
     display: flex;  
-    padding: 20px;
 }
 .m-top-title{
     margin: 0 0;
@@ -101,23 +122,24 @@ ul{
 }
 .m-table{
     position: absolute;
-    width: calc(100% - 240px);
-    height: calc(100vh - 150px);
+    width: calc(100% - 270px);
+    height: calc(-195px + 102vh);
     background-color: white;
     left: 220px;
     top: 135px;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 6px;
 }
 .m-top-table{
     height: 35px;
-    padding: 10px 0;
+    padding-bottom: 10px;
     position: relative;
 }
 .m-icon-search{
     background-repeat: no-repeat;
     height: 20px;
     position: absolute;
-    top: 18px;
+    top: 10px;
     left: 175px;
 }
 .m-top-btn{
@@ -147,3 +169,61 @@ ul{
 .m-btn-refresh{
     right: 0;
 }
+.m-table-content{
+    height: 430px;
+    /* height: 300px; */
+    overflow-y: scroll;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1px;
+}
+
+/*End Main */
+
+/*Begin Footer Table */
+.m-table-footer{
+    padding-top: 22px;
+    display: flex;
+}
+
+.m-table-right-footer{
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+.m-direction{
+    height: 20px;
+}
+/*End Footter Table */
+tr:hover{
+    background-color: #E7F5EC;
+    cursor: pointer;
+}
+.m-loading{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: #ccc;
+    opacity: 0.4;
+}
+.m-loading-icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

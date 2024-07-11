@@ -18,7 +18,7 @@
         
         <div class="m-user container">
             <img class="m-user-img" src="../assets/icon/avatar-default.png">
-            Nguyễn Văn Mạnh
+            Nguyễn Anh Quân
             <img class="m-option" src="../assets/icon/option.png">
         </div>
     </header>
@@ -39,6 +39,10 @@
             <li>
                 <img class="m-icon-nav" src="../assets/icon/setting.png">
                 Cài Đặt
+            </li>
+            <li class="m-bottom-nav">
+                <img class="m-icon-nav" src="../assets/icon/btn-prev-page.svg">
+                Thu gọn
             </li>
         </ul>
     </nav>
@@ -63,7 +67,7 @@
             </div>
             <div class="m-table-content">
                 <div class="m-row">
-                    <table>
+                    <table id="table-employees">
             
                         <tr class="m-table-header-color">
                           <th>STT</th>
@@ -74,115 +78,36 @@
                           <th>Địa Chỉ Email</th>
                           <th>Địa Chỉ</th>
                         </tr>
-                      
-                        <tr>
-                          <td>15</td>
-                          <td>NV-34296</td>
-                          <td>Hoàng Hưng Chung</td>
-                          <td>Nam</td>
-                          <td>02/08/1954</td>
-                          <td>abc@gmail.com</td>
-                          <td>98 Cầu Giấy</td>
-                        </tr>
-                      
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
+                      <tbody>
 
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        <tr>
-                            <td>15</td>
-                            <td>NV-34296</td>
-                            <td>Hoàng Hưng Chung</td>
-                            <td>Nam</td>
-                            <td>02/08/1954</td>
-                            <td>abc@gmail.com</td>
-                            <td>98 Cầu Giấy</td>
-                        </tr>
-
-                        
+                          
+                      </tbody>
                       </table>
                 </div>
             </div>
+            <div class="m-table-footer">
+                <span style="font-weight: bold;">Tổng: 100 </span> 
+                <div class="m-table-right-footer">
+                    <p>Số bản ghi/trang</p>
+                    <span style="font-weight: bold;">10</span> 
+
+                    <img class="m-direction" src="../assets/icon/Layer 2.png">
+                    <img class="m-direction m-pre" src="../assets/icon/btn-prev-page.svg">
+                    <img class="m-direction m-next" src="../assets/icon/btn-next-page.svg">
+                </div>
+                
+            </div>
+        </div>
+        <div class="m-loading">
+            <div class="m-loading-icon">
+
+            </div>
         </div>
     </div>
-    <!-- Thư viện js -->
+    <!--thư viện jquery-->
     <script src="../js/jquery-3.7.1.js"></script>
-    <!--js sử dụng chung-->
-    <script src="/UI/js/pages/employees.js"></script>
-    <!--js sử dụng riêng page-->
-    <script>
-        $(document).ready(function(){
-            $(".m-btn-icon-add").click(function(){
-                window.location.href="../pages/form.html"
-            });
-        });
-    </script>
+    <script  src="../js/pages/employees.js"></script>
+
 </body>
 
 </html>
