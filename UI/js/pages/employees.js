@@ -3,6 +3,10 @@ $(document).ready(function () {
     window.location.href = "../pages/form.html"
   });
   $(".m-loading").show();
+  loadDataAndRender();
+});
+
+function loadDataAndRender(){
   $.ajax({
     type: "GET",
     url: "https://cukcuk.manhnv.net/api/v1/Employees",
@@ -30,11 +34,11 @@ $(document).ready(function () {
         
       }
       $(".m-loading").hide();
-
+      $("#total").text(`Tổng: ${response.length}`);
     },
     err: function (response) {
       console.error("Lỗi khi lấy danh sách nhân viên:", response);
       debugger
     }
   });
-});
+}

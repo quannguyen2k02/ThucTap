@@ -86,12 +86,16 @@
                 </div>
             </div>
             <div class="m-table-footer">
-                <span style="font-weight: bold;">Tổng: 100 </span> 
+                <span id="total" style="font-weight: bold;"> </span> 
                 <div class="m-table-right-footer">
                     <p>Số bản ghi/trang</p>
-                    <span style="font-weight: bold;">10</span> 
+                    <!-- <span style="font-weight: bold;">10</span>  -->
+                     <select name="pageSize" id="pageNumber">
+                        <option value="10">10</option>
+                        <option value="100">100</option>
+                     </select>
 
-                    <img class="m-direction" src="../assets/icon/Layer 2.png">
+
                     <img class="m-direction m-pre" src="../assets/icon/btn-prev-page.svg">
                     <img class="m-direction m-next" src="../assets/icon/btn-next-page.svg">
                 </div>

@@ -18,6 +18,7 @@ nav{
     height: calc(100vh - 56px);
     background-color: #1F1F1F;
     float: left;
+    position: relative;
 
 }
 .main{
@@ -71,7 +72,6 @@ ul{
     padding-top: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    position: relative;
 }
 .m-icon-nav{
     height:25px ;
@@ -88,7 +88,7 @@ ul{
 }
 .m-bottom-nav{
     position: absolute;
-    bottom: -427px;
+    bottom: 10px;
     width: 170px;
     border-top: 1px solid #424242;
     padding: 0 0 !important;
@@ -170,7 +170,7 @@ th {
     right: 0;
 }
 .m-table-content{
-    height: 430px;
+    height: 83%;
     /* height: 300px; */
     overflow-y: scroll;
     border-bottom: 1px solid #ccc;
