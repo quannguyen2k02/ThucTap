@@ -2,11 +2,15 @@
 $(document).ready(function(){
     $("#txtHoTen").focus();
         // Lấy mã nhân viên từ api
-        getEmployeeCode();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const employeeId = urlParams.get('id');
+        getEmployeeById(employeeId);
         //Lấy phòng ban từ api
         getDepartment();
-        $("#btn-save").click(async function() {
+        $("#btn-save").click( function() {
             // 1. Validate dữ liệu
+            let employeeId = urlParams.get('id');
             let EmployeeCode = $("#txtMaNV").val();
             let name = $("#txtHoTen").val();
             let dob = $("#txtNgaySinh").val();
@@ -66,8 +70,8 @@ $(document).ready(function(){
                 "PhoneNumber": phone_number,
                 "Email": email
             }
-            // gọi hàm thêm nhân viên
-            AddEmployee(employee);
+            // gọi hàm sửa nhân viên
+            editEmployee(employee,employeeId);
         });
         
         // Hiển thị trạng thái validate khi không nhập dữ liệu
@@ -81,7 +85,7 @@ $(document).ready(function(){
         
 
     
-});
+    });
 //validate dữ liệu  khi nhấn lưu
 function validateInputRequired(input){
     var me = this;
@@ -93,21 +97,7 @@ function validateInputRequired(input){
         $(input).removeClass("m-input-err");
     }
 }
-//hàm gọi api mã nhân viên
-function getEmployeeCode(){
-    $.ajax({
-        type: "GET",
-        url: "https://cukcuk.manhnv.net/api/v1/Employees/NewEmployeeCode",
-        success: function(response) {
-            $("#txtMaNV").val(response);
-            $("#txtMaNV").prop('disabled', true);
-        },
-        error: function(response) {
-            alert("Có lỗi khi tạo mã nhân viên");
-        }
-       
-    });
-}
+
 //hàm lấy ra danh sách phòng ban
 function getDepartment(){
     $.ajax({
@@ -126,21 +116,55 @@ function getDepartment(){
         }
     });
 }
-//hàm gọi api thêm nhân viên
-function AddEmployee(employee){
+function getEmployeeById(id){
     $.ajax({
-        type: "POST",
-        url: "https://cukcuk.manhnv.net/api/v1/Employees",
+        type: "GET",
+        url: `https://cukcuk.manhnv.net/api/v1/Employees/${id}`,
+        success: function(response) {
+            $("#txtMaNV").val(response.EmployeeCode);
+            $("#txtHoTen").val(response.FullName);
+            //chuyển đổi định dạng ngày để hiển thị đúng dữ liệu
+            let dob = new Date(response.DateOfBirth).toISOString().split('T')[0];
+            $("#txtNgaySinh").val(dob);
+            $("#txtViTri").val(response.PositionId);
+            $("#txtCMT").val(response.IdentityNumber);
+            //chuyển đổi định dạng ngày để hiển thị đúng dữ liệu
+
+            let identityDate  = new Date(response.IdentityDate).toISOString().split('T')[0];
+            $("#txtNgayCap").val(identityDate);
+            $("#phongban-dropdown").val(response.DepartmentId);
+            $("#txtNoiCap").val(response.IdentityPlace);
+            $("#txtDiaChi").val(response.Address);
+            $("#txtDTDD").val(response.PhoneNumber);
+            $("#txtDTCD").val();
+            $("#txtEmail").val(response.Email);
+            $("#txtTKNganHang").val();
+            $("#txtTenNganHang").val();
+            $("#txtChiNhanh").val();
+            $("#txtMaNV").prop('disabled', true);
+        },
+        error: function(response) {
+            console.error("Lỗi khi lấy dữ liệu nhân viên:", response);
+        }
+    });
+}
+//hàm gọi api sửa nhân viên
+function editEmployee(employee,employeeId){
+    debugger
+    $.ajax({
+        type: "PUT",
+        url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeId}`,
         data: JSON.stringify(employee),
         dataType: "json",
         contentType: "application/json",
         success: function(response) {
             $(".m-loading").hide();
-            alert("Thêm thành công!");
+            alert("Sửa thành công!");
             window.location.href = "../../pages/Employees.html";
         },
         error: function(response) {
-            alert("Thêm thất bại");
+            console.error("Error details:", response);
+            alert("Sửa thất bại");
             $(".m-loading").hide();
              
             

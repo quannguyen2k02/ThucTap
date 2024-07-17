@@ -68,7 +68,8 @@
             <div class="m-table-content">
                 <div class="m-row">
                     <table id="table-employees">
-            
+                    <thead>
+
                         <tr class="m-table-header-color">
                           <th>STT</th>
                           <th>Mã Nhân Viên</th>
@@ -78,11 +79,12 @@
                           <th>Địa Chỉ Email</th>
                           <th>Địa Chỉ</th>
                         </tr>
+                    </thead>
                       <tbody>
 
                           
                       </tbody>
-                      </table>
+                    </table>
                 </div>
             </div>
             <div class="m-table-footer">
@@ -90,14 +92,15 @@
                 <div class="m-table-right-footer">
                     <p>Số bản ghi/trang</p>
                     <!-- <span style="font-weight: bold;">10</span>  -->
-                     <select name="pageSize" id="pageNumber">
+                     <select name="pageSize" id="pageSize">
                         <option value="10">10</option>
-                        <option value="100">100</option>
+                        <option value="50">50</option>
+                        <option selected value="100">100</option>
                      </select>
 
 
-                    <img class="m-direction m-pre" src="../assets/icon/btn-prev-page.svg">
-                    <img class="m-direction m-next" src="../assets/icon/btn-next-page.svg">
+                    <img id="m-pre" class="m-direction m-pre" src="../assets/icon/btn-prev-page.svg">
+                    <img id="m-next" class="m-direction m-next" src="../assets/icon/btn-next-page.svg">
                 </div>
                 
             </div>

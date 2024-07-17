@@ -192,6 +192,7 @@ th {
 }
 .m-direction{
     height: 20px;
+    cursor: pointer;
 }
 /*End Footter Table */
 tr:hover{
