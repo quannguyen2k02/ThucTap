@@ -27,13 +27,32 @@ $(document).ready(function () {
       loadDataAndRenderTable(pageSize, currentPage);
     }
   })
-
+  //Chi tiết nhân viên
   $("#table-employees tbody").on("click", "tr", function() {
     // Lấy Employee ID từ dòng được click
     var employeeId = $(this).data("id");
     // Chuyển hướng đến trang chỉnh sửa với Employee ID trong URL
     window.location.href = "Edit.html?id=" + employeeId;
   });
+
+  //Bấm vào nút x 
+  $("#table-employees tbody").on("click", "#m-delete", function(event) {
+    event.stopPropagation(); // Ngăn chặn sự kiện click từ phần tử cha
+    var employeeId = $(this).closest("tr").data("id"); //lấy id của employee
+    //  hiển thị popup xóa
+    $(".confirm-delete").show();
+    //bấm đồng ý xóa
+    $("#m-confirm").click(function(){
+    $(".confirm-delete").hide();
+      $(".m-loading").show();
+      //xử lí xóa
+      deleteEmployee(employeeId);
+
+    })
+  });
+  $("#m-cancel").click(function(){
+    $(".confirm-delete").hide();
+  })
 });
 //demo
 // function loadDataAndRender(){
@@ -112,7 +131,14 @@ function renderTable(data,pageSize, pageNumber){
                     <td>${gender}</td>
                     <td>${dob}</td>
                     <td>${email}</td>
-                    <td>${address}</td>
+                    <td>
+                     <div class="control-row-container">
+                     ${address}
+                                    <div class="control-row" >
+                                        <img id="m-delete" src="../assets/icon/close-1.svg">
+                                    </div>
+                                </div>
+                    </td>
                   </tr>`
         $("#table-employees tbody").append(el);
       }
@@ -136,4 +162,20 @@ async function loadDataAndRenderTable(pageSize, pageNumber){
 
 }
 
-//Hàm thay đổi số bản ghi trên 1 trang
+//Hàm xóa nhân viên
+function deleteEmployee(employeeId){
+  $.ajax({
+    type: "DELETE",
+    url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeId}`,
+    success: function(response){
+      loadDataAndRenderTable(100,1);
+      $(".confirm-delete").hide();
+      alert("Xóa thành công!");
+    },
+
+    error: function (response) {
+      alert("Xóa thất bại!");
+      $(".m-loading").hide();
+    }
+  });
+}
