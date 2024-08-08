@@ -23,8 +23,8 @@ body{
 }
 
 .m-row{
-    margin-top: 4px;
     width: 100%;
+    display: flex;
 }
 p{
     margin: 0 0;

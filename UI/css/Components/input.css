@@ -5,7 +5,6 @@
     padding: 0 12px;
     outline: none;
     width: 175px;
-    position: absolute;
 }
 .m-input:focus{
     border-color: #019160;

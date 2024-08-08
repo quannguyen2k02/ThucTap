@@ -5,16 +5,20 @@ $(document).ready(function(){
 
         const urlParams = new URLSearchParams(window.location.search);
         const employeeId = urlParams.get('id');
-        getEmployeeById(employeeId);
         //Lấy phòng ban từ api
+
         getDepartment();
+        //Lấy vị trí từ api
+        getPosition();
+        getEmployeeById(employeeId);
+        
         $("#btn-save").click( function() {
             // 1. Validate dữ liệu
             let employeeId = urlParams.get('id');
             let EmployeeCode = $("#txtMaNV").val();
             let name = $("#txtHoTen").val();
             let dob = $("#txtNgaySinh").val();
-            let position = $("#txtViTri").val();
+            let position = $("#vitri-dropdown").val();
             let gender = $("input[name='gioitinh']:checked").val();
             let cin = $("#txtCMT").val();
             let license_date = $("#txtNgayCap").val();
@@ -66,6 +70,7 @@ $(document).ready(function(){
                 "IdentityDate": license_date,
                 "IdentityPlace": issued_by,
                 "DepartmentId": department,
+                "PositionId": position,
                 "Address": address,
                 "PhoneNumber": phone_number,
                 "Email": email
@@ -102,7 +107,7 @@ function validateInputRequired(input){
 function getDepartment(){
     $.ajax({
         type: "GET",
-        url: "https://cukcuk.manhnv.net/api/v1/Departments",
+        url: "http://localhost:5236/api/v1/departments",
         success: function(response) {
             for(let department of response) {
                 let departmentId = department.DepartmentId;
@@ -116,23 +121,43 @@ function getDepartment(){
         }
     });
 }
+//Hàm lấy ra danh sách vị trí
+function getPosition(){
+    $.ajax({
+        type: "GET",
+        url: "http://localhost:5236/api/v1/Positions",
+        success: function(response) {
+            for(let position of response) {
+                let positionId = position.PositionId;
+                let positionName = position.PositionName;
+                var el = `<option value="${positionId}">${positionName}</option>`;
+                $("#vitri-dropdown").append(el);
+            }
+        },
+        error: function(response) {
+            console.error("Lỗi khi lấy phòng ban:", response);
+        }
+    });
+}
+//Hàm hiển thị nhân viên lên form
 function getEmployeeById(id){
     $.ajax({
         type: "GET",
-        url: `https://cukcuk.manhnv.net/api/v1/Employees/${id}`,
+        url: `http://localhost:5236/api/v1/employees/${id}`,
         success: function(response) {
             $("#txtMaNV").val(response.EmployeeCode);
             $("#txtHoTen").val(response.FullName);
             //chuyển đổi định dạng ngày để hiển thị đúng dữ liệu
             let dob = new Date(response.DateOfBirth).toISOString().split('T')[0];
             $("#txtNgaySinh").val(dob);
-            $("#txtViTri").val(response.PositionId);
+            $("#vitri-dropdown").val(response.PositionId);
             $("#txtCMT").val(response.IdentityNumber);
             //chuyển đổi định dạng ngày để hiển thị đúng dữ liệu
 
             let identityDate  = new Date(response.IdentityDate).toISOString().split('T')[0];
             $("#txtNgayCap").val(identityDate);
             $("#phongban-dropdown").val(response.DepartmentId);
+            console.log(response.DepartmentId);
             $("#txtNoiCap").val(response.IdentityPlace);
             $("#txtDiaChi").val(response.Address);
             $("#txtDTDD").val(response.PhoneNumber);
@@ -150,17 +175,16 @@ function getEmployeeById(id){
 }
 //hàm gọi api sửa nhân viên
 function editEmployee(employee,employeeId){
-    debugger
-    $.ajax({
+        $.ajax({
         type: "PUT",
-        url: `https://cukcuk.manhnv.net/api/v1/Employees/${employeeId}`,
+        url: `http://localhost:5236/api/v1/employees/${employeeId}`,
         data: JSON.stringify(employee),
         dataType: "json",
         contentType: "application/json",
         success: function(response) {
             $(".m-loading").hide();
             alert("Sửa thành công!");
-            window.location.href = "../../pages/Employees.html";
+            window.location.href = `../../../UI/pages/Edit.html?id=${employeeId}`;
         },
         error: function(response) {
             console.error("Error details:", response);

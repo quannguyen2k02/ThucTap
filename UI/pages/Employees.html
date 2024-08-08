@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
     <link rel="stylesheet" href="../css/layout/employees.css">
     <link rel="stylesheet" href="../css/main.css">
-    
 
 </head>
 <body>
@@ -128,10 +130,244 @@
             <button id="m-cancel" class="m-btn m-btn-secondary">Hủy</button>
         </div>
     </div>
+    <!--Dialog thêm-->
+    <div id="dlgDialog" class="m-dialog">
+        <div class="m-dialog-content">
+           <div class="m-dialog-header">
+                <div class="m-dialog-title">Thông tin chi tiết nhân viên</div>
+                <button class=" m-dialog-close"><i class="fas fa-times"></i></button>
+           </div>
+           <div class="m-dialog-body">
+            <div class="m-row pb-24">
+                <div class="form-field form-field-manv">
+                    <p class="form-label">Mã nhân viên <span class="red">*</span></p>
+                    <input required id="txtMaNV" class="form-input form-input-manv"/>
+                </div>
+                <div class="form-field form-field-hoten">
+                    <p class="form-label">Họ tên <span class="red">*</span></p>
+                    <input required id="txtHoTen" class="form-input form-input-hoten"/>
+                </div>
+                <div class="form-field form-field-ngaysinh">
+                    <p class="form-label">Ngày sinh</p>
+                    <input id="txtNgaySinh" class="form-input form-input-ngaysinh" type="date" >
+                </div>
+                <div class="form-field form-field-gioitinh">
+                    <p class="form-label">Giới tính</p>
+                    <div class="row   align-items-center">
+
+                        <input  name="gioitinh"  class="form-input form-input-gioitinh" checked type="radio" value="2" > Nam
+                        <input name="gioitinh"  class="form-input form-input-gioitinh" type="radio" value="1" > Nữ
+                        <input name="gioitinh"  class="form-input form-input-gioitinh" type="radio" value="3" > Khác
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-vitri">
+                    <p class="form-label">Vị trí</p>
+                    <!-- <input required id="txtViTri" class="form-input form-input-vitri"/> -->
+                    <select id="vitri-dropdown" class="form-input form-input-vitri">
+                    </select>
+                    <img class="m-icon-close" src="../assets/icon/Layer 2-1.png">
+                    <!-- <img class="m-icon-down" src="../assets/icon/Layer 2.png"> -->
+                </div>
+                <div class="form-field form-field-cmt">
+                    <p class="form-label">Số CNTND<span class="red">*</span></p>
+                    <input required id="txtCMT" class="form-input form-input-cmt"/>
+                </div>
+                <div class="form-field form-field-ngaycap">
+                    <p class="form-label">Ngày cấp</p> 
+                    <input  id="txtNgayCap" class="form-input form-input-ngaycap" type="date" >
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-phongban">
+                    <p class="form-label">Phòng ban</p>
+                    <select id="phongban-dropdown" class="form-input form-input-vitri">
+                    </select>
+                    <!-- <input type="" required id="txtPhongBan" class="form-input form-input-vitri"/> -->
+                    <img class="m-icon-close" src="../assets/icon/Layer 2-1.png">
+                    <!-- <img class="m-icon-down" src="../assets/icon/Layer 2.png"> -->
+                </div>
+                <div class="form-field form-field-noicap">
+                    <p class="form-label">Nơi cấp</p>
+                    <input  id="txtNoiCap" class="form-input form-input-noicap"/>
+
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-diachi">
+                    <p class="form-label">Địa chỉ</p>
+                    <input required id="txtDiaChi" class="form-input form-input-diachi"/>
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">ĐT Di động <span class="red">*</span></p>
+                    <input required id="txtDTDD" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong mg-2">
+                    <p class="form-label">ĐT Cố định</p>
+                    <input  id="txtDTCD" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">Email <span class="red">*</span></p>
+                    <input required id="txtEmail" class="form-input form-input-dtdidong"/>
+                </div>
+            </div>
+
+            <div class="m-row">
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">Tài khoản ngân hàng</p>
+                    <input  id="txtTKNganHang" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong mg-2">
+                    <p class="form-label">Tên ngân hàng</p>
+                    <input  id="txtTenNganHang" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">Chi nhánh</p>
+                    <input  id="txtChiNhanh" class="form-input form-input-dtdidong"/>
+                </div>
+            </div>
+
+
+           </div>
+           <div class="m-dialog-footer">
+                <button id="btn-save" class="m-btn">Lưu</button>
+           </div>
+        </div>
+    </div>
+
+    <!-- dlgDialog sửa -->
+
+    <div id="dlgDialog-edit" class="m-dialog m-dialog-edit">
+        <div class="m-dialog-content">
+           <div class="m-dialog-header">
+                <div class="m-dialog-title">Thông tin chi tiết nhân viên</div>
+                <button class=" m-dialog-close m-dialog-close-edit"><i class="fas fa-times"></i></button>
+           </div>
+           <div class="m-dialog-body">
+            <div class="m-row pb-24">
+                <div class="form-field form-field-manv">
+                    <p class="form-label">Mã nhân viên <span class="red">*</span></p>
+                    <input required id="txtMaNV-edit" class="form-input form-input-manv"/>
+                </div>
+                <div class="form-field form-field-hoten">
+                    <p class="form-label">Họ tên <span class="red">*</span></p>
+                    <input required id="txtHoTen-edit" class="form-input form-input-hoten"/>
+                </div>
+                <div class="form-field form-field-ngaysinh">
+                    <p class="form-label">Ngày sinh</p>
+                    <input id="txtNgaySinh-edit" class="form-input form-input-ngaysinh" type="date" >
+                </div>
+                <div class="form-field form-field-gioitinh">
+                    <p class="form-label">Giới tính</p>
+                    <div class="row   align-items-center">
+
+                        <input  name="gioitinh-edit"  class="form-input form-input-gioitinh" checked type="radio" value="2" > Nam
+                        <input name="gioitinh-edit"  class="form-input form-input-gioitinh" type="radio" value="1" > Nữ
+                        <input name="gioitinh-edit"  class="form-input form-input-gioitinh" type="radio" value="3" > Khác
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-vitri">
+                    <p class="form-label">Vị trí</p>
+                    <!-- <input required id="txtViTri" class="form-input form-input-vitri"/> -->
+                    <select id="vitri-dropdown-edit" class="form-input form-input-vitri">
+                    </select>
+                    <img class="m-icon-close" src="../assets/icon/Layer 2-1.png">
+                    <!-- <img class="m-icon-down" src="../assets/icon/Layer 2.png"> -->
+                </div>
+                <div class="form-field form-field-cmt">
+                    <p class="form-label">Số CNTND<span class="red">*</span></p>
+                    <input required id="txtCMT-edit" class="form-input form-input-cmt"/>
+                </div>
+                <div class="form-field form-field-ngaycap">
+                    <p class="form-label">Ngày cấp</p> 
+                    <input  id="txtNgayCap-edit" class="form-input form-input-ngaycap" type="date" >
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-phongban">
+                    <p class="form-label">Phòng ban</p>
+                    <select id="phongban-dropdown-edit" class="form-input form-input-vitri">
+                    </select>
+                    <!-- <input type="" required id="txtPhongBan" class="form-input form-input-vitri"/> -->
+                    <img class="m-icon-close" src="../assets/icon/Layer 2-1.png">
+                    <!-- <img class="m-icon-down" src="../assets/icon/Layer 2.png"> -->
+                </div>
+                <div class="form-field form-field-noicap">
+                    <p class="form-label">Nơi cấp</p>
+                    <input  id="txtNoiCap-edit" class="form-input form-input-noicap"/>
+
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-diachi">
+                    <p class="form-label">Địa chỉ</p>
+                    <input required id="txtDiaChi-edit" class="form-input form-input-diachi"/>
+                </div>
+            </div>
+
+            <div class="m-row pb-24">
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">ĐT Di động <span class="red">*</span></p>
+                    <input required id="txtDTDD-edit" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong mg-2">
+                    <p class="form-label">ĐT Cố định</p>
+                    <input  id="txtDTCD-edit" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">Email <span class="red">*</span></p>
+                    <input required id="txtEmail-edit" class="form-input form-input-dtdidong"/>
+                </div>
+            </div>
+
+            <div class="m-row">
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">Tài khoản ngân hàng</p>
+                    <input  id="txtTKNganHang-edit" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong mg-2">
+                    <p class="form-label">Tên ngân hàng</p>
+                    <input  id="txtTenNganHang-edit" class="form-input form-input-dtdidong"/>
+                </div>
+
+                <div class="form-field form-field-dtdidong">
+                    <p class="form-label">Chi nhánh</p>
+                    <input  id="txtChiNhanh-edit" class="form-input form-input-dtdidong"/>
+                </div>
+            </div>
+
+
+           </div>
+           <div class="m-dialog-footer">
+                <button id="btn-edit" class="m-btn">Lưu</button>
+           </div>
+        </div>
+    </div>
     <!--thư viện jquery-->
     <script src="../js/jquery-3.7.1.js"></script>
     <script  src="../js/pages/employees.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </body>
 
 </html>
