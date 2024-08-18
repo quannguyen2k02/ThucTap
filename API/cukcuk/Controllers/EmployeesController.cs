@@ -383,7 +383,6 @@ namespace cukcuk.Controllers
                         Employees = employees
 
                     };
-
                     return Ok(result);
                 }
             }
